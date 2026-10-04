@@ -1,7 +1,7 @@
 <x-layouts.app :title="__('家計簿編集')">
     <div class="p-6">
         <h2 class="font-semibold text-xl mb-4">{{ __('家計簿編集') }}</h2>
-        <form action="{{ route('transactions.update', $transaction) }}" method="POST">
+        <form method="POST" action="{{ route('transactions.update', $transaction) }}">
             @csrf
             @method('PUT')
             <div class="mb-4">
@@ -49,12 +49,17 @@
                 <span class="text-red-500 text-xs italic">{{ $message }}</span>
                 @enderror
             </div>
+            <form action="{{ route('transactions.update', $transaction) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">更新</button>
+            </form>
             <form action="{{ route('transactions.destroy', $transaction) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-red-500 text-white px-4 py-2 my-2 rounded">削除</button>
-                </form>
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">更新</button>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 my-2 rounded">削除</button>
+            </form>
+            
         </form>
     </div>
 </x-layouts.app>

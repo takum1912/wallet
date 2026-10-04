@@ -10,7 +10,7 @@
             <p>内容：{{ $transaction->content }}</p>
             <p>メモ：{{ $transaction->memo }}</p>
             <p>ユーザー：{{ $transaction->user->name }}</p>
-            <a href="{{ route('transactions.edit', $transaction) }}" class="text-green-500 mr-2" wire:navigate>編集</a>
+            <a href="{{ route('transactions.edit', $transaction) }}" class="text-green-500 mr-2 " wire:navigate>編集</a>
             <a href="{{ route('transactions.show', $transaction) }}" class="text-blue-500 hover:text-blue-700 mr-2">詳細を見る</a>
         </div>
         @endforeach
